@@ -84,8 +84,12 @@ const Auth = ({ onAuthSuccess }: AuthProps) => {
     <div className="min-h-screen bg-gradient-to-br from-google-blue/10 via-google-green/10 to-google-yellow/10 flex items-center justify-center p-4">
       <Card className="w-full max-w-md card-shadow animate-fadeInUp">
         <CardHeader className="text-center">
-          <div className="w-16 h-16 mx-auto mb-4 google-gradient rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-xl">GDG</span>
+          <div className="w-16 h-16 mx-auto mb-4">
+            <img 
+              src="/lovable-uploads/c1b206a2-e8a6-4d07-afb0-0497c807defb.png" 
+              alt="GDG Bukavu Logo" 
+              className="w-full h-full object-contain"
+            />
           </div>
           <CardTitle className="text-2xl font-bold">Authentification</CardTitle>
           <CardDescription>
