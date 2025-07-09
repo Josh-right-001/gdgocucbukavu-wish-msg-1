@@ -22,15 +22,14 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-google-blue via-google-green to-google-yellow flex items-center justify-center z-50">
       <div className="text-center space-y-8">
-        {/* Logo GDG animé */}
+        {/* Logo Google Maps animé */}
         <div className="relative">
           <div className="w-32 h-32 mx-auto mb-4 animate-bounce-slow">
-            <div className="w-full h-full rounded-full google-gradient animate-pulse-slow"></div>
-            <div className="absolute inset-4 bg-white rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold bg-gradient-to-r from-google-blue to-google-green bg-clip-text text-transparent">
-                GDG
-              </span>
-            </div>
+            <img 
+              src="/lovable-uploads/c1b206a2-e8a6-4d07-afb0-0497c807defb.png" 
+              alt="Logo" 
+              className="w-full h-full object-contain animate-pulse-slow"
+            />
           </div>
           
           {/* Confettis autour du logo */}
