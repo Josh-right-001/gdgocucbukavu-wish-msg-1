@@ -8,7 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { CalendarIcon, Camera, Wand2, Download, Share2, Send } from 'lucide-react';
+import { CalendarIcon, Camera, Wand2, Download, Share2, Send, Linkedin, Instagram, Youtube, Twitter } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { toast } from '@/hooks/use-toast';
@@ -89,10 +89,10 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
     }
 
     const aiWishes = [
-      `Joyeux anniversaire ${formData.firstName} ! En tant que ${formData.title || formData.customTitle}, votre expertise en ${formData.keywords} inspire toute l'équipe. Que cette nouvelle année vous apporte encore plus de succès et d'innovations ! 🎉`,
-      `Happy Birthday ${formData.firstName}! Votre passion pour ${formData.keywords} et votre rôle de ${formData.title || formData.customTitle} font de vous un membre précieux de GDG Bukavu. Profitez de votre journée spéciale ! ✨`,
-      `Félicitations ${formData.firstName} pour cette nouvelle année ! Grâce à votre talent en ${formData.keywords}, vous contribuez grandement au succès de notre communauté. Que cette année soit remplie de défis passionnants ! 🚀`,
-      `Joyeux anniversaire à notre formidable ${formData.title || formData.customTitle} ! Votre maîtrise de ${formData.keywords} et votre dévouement sont remarquables. Passez une excellente journée ${formData.firstName} ! 🎂`
+      `To our ${formData.title || formData.customTitle}, ${formData.firstName}, thank you for your dedication and leadership in ${formData.keywords}. Wishing you a fantastic year ahead! 🎉`,
+      `Happy Birthday ${formData.firstName}! Your expertise in ${formData.keywords} and your role as ${formData.title || formData.customTitle} inspire our entire community. Have an amazing day! ✨`,
+      `Celebrating ${formData.firstName} today! Your passion for ${formData.keywords} and commitment as our ${formData.title || formData.customTitle} make you invaluable to GDG Bukavu. Enjoy your special day! 🚀`,
+      `To our amazing ${formData.title || formData.customTitle}, ${formData.firstName}! Your mastery of ${formData.keywords} and dedication to our community are remarkable. Have a wonderful birthday! 🎂`
     ];
 
     const randomWish = aiWishes[Math.floor(Math.random() * aiWishes.length)];
@@ -169,82 +169,123 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
         <div className="max-w-2xl mx-auto space-y-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold mb-2">Prévisualisation</h2>
-            <p className="text-muted-foreground">Voici votre carte d'anniversaire</p>
+            <p className="text-muted-foreground">Voici votre carte d'anniversaire professionnelle</p>
           </div>
 
-          {/* Carte d'anniversaire */}
-          <Card className="card-shadow">
+          {/* Carte d'anniversaire professionnelle */}
+          <Card className="card-shadow bg-white max-w-lg mx-auto">
             <CardContent className="p-0">
-              <div className="relative bg-gradient-to-br from-google-blue/10 via-google-green/10 to-google-yellow/10 rounded-xl p-8 overflow-hidden">
-                {/* Confettis */}
-                <div className="absolute inset-0">
-                  {[...Array(12)].map((_, i) => (
+              <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 overflow-hidden min-h-[600px]">
+                {/* Texture de fond subtile */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23000" fill-opacity="0.1"%3E%3Ccircle cx="3" cy="3" r="1"/%3E%3C/g%3E%3C/svg%3E')]"></div>
+                </div>
+
+                {/* Confettis multicolores dispersés */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {[...Array(15)].map((_, i) => (
                     <div
                       key={i}
-                      className="confetti-piece"
+                      className="absolute w-2 h-2 rounded-full opacity-60"
                       style={{
-                        left: `${5 + i * 8}%`,
-                        top: `${5 + (i % 4) * 25}%`,
-                        animationDelay: `${i * 0.1}s`
+                        background: ['#4285F4', '#EA4335', '#FBBC04', '#34A853'][i % 4],
+                        left: `${10 + (i * 7) % 80}%`,
+                        top: `${5 + (i * 11) % 85}%`,
+                        transform: `rotate(${i * 30}deg)`,
                       }}
                     />
                   ))}
                 </div>
 
-                <div className="relative z-10">
-                  {/* En-tête */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold">{birthDateStr.split(' ')[0] || '06'}</div>
-                      <div className="text-lg font-medium">{birthDateStr.split(' ')[1] || 'JULY'}</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-lg font-bold">#gdgbukavu</div>
-                      <div className="text-sm">#BuildwithAI</div>
-                    </div>
-                  </div>
+                {/* Trois cercles colorés en haut à gauche */}
+                <div className="absolute -top-4 -left-4 flex space-x-1">
+                  <div className="w-8 h-8 bg-google-yellow rounded-full"></div>
+                  <div className="w-8 h-8 bg-google-red rounded-full"></div>
+                  <div className="w-8 h-8 bg-google-green rounded-full"></div>
+                </div>
 
-                  {/* Titre */}
-                  <div className="text-center mb-6">
-                    <h1 className="text-5xl font-bold mb-2">Happy</h1>
-                    <h1 className="text-6xl font-bold text-transparent bg-clip-text google-gradient">
-                      Birthday
-                    </h1>
-                  </div>
+                {/* Hashtags en haut à droite */}
+                <div className="absolute top-4 right-4 text-right text-xs text-gray-600 font-light">
+                  <div className="font-mono">#gdgoucub</div>
+                  <div className="font-mono">#BuildwithAI</div>
+                </div>
 
-                  {/* Photo et infos */}
-                  <div className="text-center mb-6">
+                {/* Happy Birthday centré */}
+                <div className="text-center mb-6 mt-8">
+                  <h1 className="text-5xl font-bold text-black mb-2" style={{ fontFamily: 'cursive' }}>
+                    Happy Birthday
+                  </h1>
+                </div>
+
+                {/* Date sur le côté gauche */}
+                <div className="absolute left-4 top-32 text-center">
+                  <div className="text-4xl font-black text-black">
+                    {birthDateStr.split(' ')[0] || '06'}
+                  </div>
+                  <div className="text-sm font-bold text-black tracking-wider">
+                    {birthDateStr.split(' ')[1] || 'JULY'}
+                  </div>
+                </div>
+
+                {/* Photo centrale dans un cadre Polaroid */}
+                <div className="flex justify-center mb-6 mt-4">
+                  <div className="bg-white p-3 rounded-lg shadow-lg transform rotate-1">
                     {formData.photo ? (
                       <img 
                         src={formData.photo} 
                         alt={`${formData.firstName} ${formData.lastName}`}
-                        className="w-40 h-48 object-cover rounded-xl mx-auto mb-4 border-4 border-white shadow-lg"
+                        className="w-32 h-40 object-cover rounded"
                       />
                     ) : (
-                      <div className="w-40 h-48 bg-gradient-to-br from-google-blue to-google-green rounded-xl mx-auto mb-4 flex items-center justify-center border-4 border-white shadow-lg">
-                        <span className="text-white text-5xl font-bold">
-                          {formData.firstName[0]}{formData.lastName[0]}
-                        </span>
+                      <div className="w-32 h-40 bg-gray-100 rounded flex items-center justify-center">
+                        <div className="text-center text-gray-500">
+                          <Camera className="w-8 h-8 mx-auto mb-2" />
+                          <div className="text-xs">Photo</div>
+                        </div>
                       </div>
                     )}
-                    <h2 className="text-2xl font-bold">{formData.firstName} {formData.lastName}</h2>
-                    <p className="text-lg text-muted-foreground">
-                      {formData.title || formData.customTitle}
+                  </div>
+                </div>
+
+                {/* Nom et titre */}
+                <div className="text-center mb-6">
+                  <h2 className="text-2xl font-bold text-black mb-1">
+                    {formData.firstName} {formData.lastName}
+                  </h2>
+                  <p className="text-lg text-gray-700 font-medium">
+                    {formData.title || formData.customTitle}
+                  </p>
+                </div>
+
+                {/* Message de remerciement */}
+                {formData.wishMessage && (
+                  <div className="text-center mb-8 px-4">
+                    <p className="text-sm text-gray-800 leading-relaxed italic">
+                      {formData.wishMessage}
                     </p>
                   </div>
+                )}
 
-                  {/* Message */}
-                  {formData.wishMessage && (
-                    <div className="bg-white/70 rounded-xl p-4 mb-6">
-                      <p className="text-center">{formData.wishMessage}</p>
-                    </div>
-                  )}
-
-                  {/* Footer */}
+                {/* Pied de page */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  {/* Ligne multicolore */}
+                  <div className="h-1 mb-4 rounded-full bg-gradient-to-r from-google-blue via-google-red via-google-yellow to-google-green"></div>
+                  
                   <div className="flex items-center justify-between">
-                    <div className="text-sm">@gdgbukavu</div>
-                    <div className="w-12 h-12 bg-gray-800 rounded text-white text-xs flex items-center justify-center">
-                      QR
+                    {/* Icônes et handle */}
+                    <div className="flex items-center space-x-3">
+                      <div className="flex space-x-2">
+                        <Linkedin className="w-4 h-4 text-black" />
+                        <Twitter className="w-4 h-4 text-black" />
+                        <Instagram className="w-4 h-4 text-black" />
+                        <Youtube className="w-4 h-4 text-black" />
+                      </div>
+                      <span className="text-xs text-black font-mono">@gdgoucubukavu</span>
+                    </div>
+                    
+                    {/* QR Code */}
+                    <div className="w-12 h-12 bg-black rounded flex items-center justify-center">
+                      <div className="text-white text-xs font-bold">QR</div>
                     </div>
                   </div>
                 </div>
@@ -293,7 +334,7 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
                   id="firstName"
                   value={formData.firstName}
                   onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
-                  placeholder="John"
+                  placeholder="Josh"
                 />
               </div>
               <div className="space-y-2">
@@ -302,7 +343,7 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
                   id="lastName"
                   value={formData.lastName}
                   onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
-                  placeholder="Doe"
+                  placeholder="Josias"
                 />
               </div>
             </div>
