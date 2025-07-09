@@ -172,16 +172,15 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
             <p className="text-muted-foreground">Voici votre carte d'anniversaire professionnelle</p>
           </div>
 
-          {/* Carte d'anniversaire professionnelle */}
           <Card className="card-shadow bg-white max-w-lg mx-auto">
             <CardContent className="p-0">
               <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 overflow-hidden min-h-[600px]">
-                {/* Texture de fond subtile */}
                 <div className="absolute inset-0 opacity-5">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23000\" fill-opacity=\"0.1\"%3E%3Ccircle cx=\"3\" cy=\"3\" r=\"1\"/%3E%3C/g%3E%3C/svg%3E')]"></div>
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='0.1'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3C/g%3E%3C/svg%3E")`
+                  }}></div>
                 </div>
 
-                {/* Confettis multicolores dispersés */}
                 <div className="absolute inset-0 pointer-events-none">
                   {[...Array(15)].map((_, i) => (
                     <div
@@ -197,27 +196,23 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
                   ))}
                 </div>
 
-                {/* Trois cercles colorés en haut à gauche */}
                 <div className="absolute -top-4 -left-4 flex space-x-1">
                   <div className="w-8 h-8 bg-google-yellow rounded-full"></div>
                   <div className="w-8 h-8 bg-google-red rounded-full"></div>
                   <div className="w-8 h-8 bg-google-green rounded-full"></div>
                 </div>
 
-                {/* Hashtags en haut à droite */}
                 <div className="absolute top-4 right-4 text-right text-xs text-gray-600 font-light">
                   <div className="font-mono">#gdgoucub</div>
                   <div className="font-mono">#BuildwithAI</div>
                 </div>
 
-                {/* Happy Birthday centré */}
                 <div className="text-center mb-6 mt-8">
                   <h1 className="text-5xl font-bold text-black mb-2" style={{ fontFamily: 'cursive' }}>
                     Happy Birthday
                   </h1>
                 </div>
 
-                {/* Date sur le côté gauche */}
                 <div className="absolute left-4 top-32 text-center">
                   <div className="text-4xl font-black text-black">
                     {birthDateStr.split(' ')[0] || '06'}
@@ -227,7 +222,6 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
                   </div>
                 </div>
 
-                {/* Photo centrale dans un cadre Polaroid */}
                 <div className="flex justify-center mb-6 mt-4">
                   <div className="bg-white p-3 rounded-lg shadow-lg transform rotate-1">
                     {formData.photo ? (
@@ -247,7 +241,6 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
                   </div>
                 </div>
 
-                {/* Nom et titre */}
                 <div className="text-center mb-6">
                   <h2 className="text-2xl font-bold text-black mb-1">
                     {formData.firstName} {formData.lastName}
@@ -257,7 +250,6 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
                   </p>
                 </div>
 
-                {/* Message de remerciement */}
                 {formData.wishMessage && (
                   <div className="text-center mb-8 px-4">
                     <p className="text-sm text-gray-800 leading-relaxed italic">
@@ -266,13 +258,10 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
                   </div>
                 )}
 
-                {/* Pied de page */}
                 <div className="absolute bottom-4 left-4 right-4">
-                  {/* Ligne multicolore */}
                   <div className="h-1 mb-4 rounded-full bg-gradient-to-r from-google-blue via-google-red via-google-yellow to-google-green"></div>
                   
                   <div className="flex items-center justify-between">
-                    {/* Icônes et handle */}
                     <div className="flex items-center space-x-3">
                       <div className="flex space-x-2">
                         <Linkedin className="w-4 h-4 text-black" />
@@ -283,7 +272,6 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
                       <span className="text-xs text-black font-mono">@gdgoucubukavu</span>
                     </div>
                     
-                    {/* QR Code */}
                     <div className="w-12 h-12 bg-black rounded flex items-center justify-center">
                       <div className="text-white text-xs font-bold">QR</div>
                     </div>
@@ -293,7 +281,6 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
             </CardContent>
           </Card>
 
-          {/* Actions */}
           <div className="flex flex-wrap gap-3 justify-center">
             <Button onClick={handleDownload} className="flex items-center gap-2">
               <Download className="w-4 h-4" />
@@ -326,7 +313,6 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
 
         <Card className="card-shadow">
           <CardContent className="p-6 space-y-6">
-            {/* Nom et Prénom */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="firstName">Prénom</Label>
@@ -348,7 +334,6 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
               </div>
             </div>
 
-            {/* Titre */}
             <div className="space-y-2">
               <Label>Titre dans la communauté</Label>
               <Select onValueChange={(value) => setFormData(prev => ({ ...prev, title: value, customTitle: '' }))}>
@@ -375,7 +360,6 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
               )}
             </div>
 
-            {/* Date de naissance */}
             <div className="space-y-2">
               <Label>Date de naissance</Label>
               <Popover>
@@ -401,7 +385,6 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
               </Popover>
             </div>
 
-            {/* Photo */}
             <div className="space-y-2">
               <Label htmlFor="photo">Photo (optionnel)</Label>
               <div className="flex items-center space-x-4">
@@ -423,7 +406,6 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
               )}
             </div>
 
-            {/* Mots-clés pour l'IA */}
             <div className="space-y-2">
               <Label htmlFor="keywords">Mots-clés pour l'IA</Label>
               <div className="flex space-x-2">
@@ -440,7 +422,6 @@ const CreateTab = ({ userData }: { userData: UserData }) => {
               </div>
             </div>
 
-            {/* Message de souhait */}
             <div className="space-y-2">
               <Label htmlFor="wishMessage">Message de souhait</Label>
               <Textarea
