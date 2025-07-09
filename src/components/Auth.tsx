@@ -154,7 +154,7 @@ const Auth = ({ onAuthSuccess }: AuthProps) => {
 
             <Button 
               type="submit" 
-              className="w-full google-gradient hover:opacity-90 transition-all duration-200"
+              className="w-full bg-orange-600 hover:bg-orange-700 text-white transition-all duration-200"
               disabled={isLoading}
             >
               {isLoading ? (
